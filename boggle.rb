@@ -3,9 +3,8 @@ require 'pry-byebug'
 module Boggle
 end
 
+# TODO make the grid size a config thing
 require './lib/game'
 require './lib/tiles'
-require './lib/grid'
+require './lib/tile'
 
-grid = Boggle::Grid.new(Boggle::Tiles)
-Boggle::Game.play
