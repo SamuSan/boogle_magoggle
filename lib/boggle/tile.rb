@@ -7,5 +7,9 @@ module Boggle
       @letter = letter
       @neighbours = []
     end
+
+    def add_neighbour(tile)
+      @neighbours << tile
+    end
   end
 end
