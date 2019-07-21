@@ -42,7 +42,7 @@ RSpec.describe Boggle::Tiles do
     before do
       allow_any_instance_of(Boggle::Tiles).to receive(:create_tiles).and_return(generated_tiles)
     end
-    #TODO chance we could end up with doubles
+
     it 'links neighbours correctly' do
       tiles.each do |tile|
         actual_neighbours = tile.neighbours.map(&:letter).sort

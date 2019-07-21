@@ -11,10 +11,10 @@ module Boggle
     def self.show(arr)
       arr.map(&:letter).join("\s")
     end
+
     attr_reader :tiles
 
     def initialize(dimension)
-      # TODO this should probably shit the bed if the grid size doesn't make sense
       @tiles = create_tiles(dimension)
       link_neighbours(@tiles)
     end
