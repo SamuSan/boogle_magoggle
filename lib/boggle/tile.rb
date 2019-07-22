@@ -8,8 +8,9 @@ module Boggle
       @neighbours = []
     end
 
-    def add_neighbour(tile)
+    def link_to(tile)
       @neighbours << tile
+      tile.neighbours << self
     end
   end
 end

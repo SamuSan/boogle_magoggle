@@ -75,8 +75,7 @@ module Boggle
     end
 
     def link_tiles(target, neighbour)
-      target.add_neighbour(neighbour)
-      neighbour.add_neighbour(target)
+      target.link_to(neighbour)
     end
   end
 end
