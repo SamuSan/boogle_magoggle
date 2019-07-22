@@ -28,16 +28,13 @@ module Boggle
     end
 
     def link_neighbours(tiles)
-      linkage_collection = tiles.dup
       dimension = Integer.sqrt(tiles.length)
 
       # split into dimension sized chunks and pad out with a fake Tile
-      padded_chunks = tiles.each_slice(dimension).map do |chunk|
-        chunk.insert(0, Boggle::Tile.new(nil))
-      end
+      rows = pad_rows(tiles, dimension)
 
       # link adjacent tiles
-      padded_chunks.each_cons_window_of(PAIRS).each do |pair|
+      rows.each_cons_window_of(PAIRS).each do |pair|
         link_horizontally_adjacent(pair)
         link_vertical_and_diagonally_adjacent(pair) unless pair.length < 2
       end
@@ -76,6 +73,12 @@ module Boggle
 
     def link_tiles(target, neighbour)
       target.link_to(neighbour)
+    end
+
+    def pad_rows(tiles, dimension)
+      tiles.each_slice(dimension).map do |chunk|
+        chunk.insert(0, Boggle::Tile.new(nil))
+      end
     end
   end
 end
