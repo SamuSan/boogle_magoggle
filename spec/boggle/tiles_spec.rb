@@ -1,7 +1,6 @@
 require 'spec_helper'
 require 'boggle/tiles'
 require 'boggle/tile'
-require 'array'
 
 RSpec.describe Boggle::Tiles do
   subject { described_class }
